@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{agd-doorsched}
+
+\begin{document}
+\centering
+\begin{tikzpicture}[schedule]
+  \node[anchor=north] at (1.5,7) {\textbf{Monday}};
+  % Each entry is given a size (height, width).
+  % width is a fraction of the width of the column.
+  % height is a number of hours.
+  % It is then placed at a position (x, y).
+  % x is the day number, plus a fractional shift if appropriate.
+  % y is the starting hour.
+  % \node[entry={1.2}{1}] at (1,9.8) {72-minute class at 9:50};
+    
+  \node[anchor=north] at (2.5,7) {\textbf{Tuesday}};
+
+  \node[anchor=north] at (3.5,7) {\textbf{Wednesday}};
+
+  \node[anchor=north] at (4.5,7) {\textbf{Thursday}};
+
+  \node[anchor=north] at (5.5,7) {\textbf{Friday}};
+\end{tikzpicture}
+\end{document}

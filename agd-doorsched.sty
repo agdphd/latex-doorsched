@@ -1,0 +1,54 @@
+\ProvidesPackage{agd-doorsched}
+
+\usepackage[american]{babel}
+
+\usepackage[margin=1in,letterpaper]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+
+\usepackage{microtype}
+
+\usepackage{tikz}
+
+% These set the width of a day and the height of an hour.
+\newcommand*\daywidth{3.5cm}
+\newcommand*\hourheight{3em}
+
+% The entry style will have two options:
+% * the first option sets how many hours the entry will be (i.e. its height);
+% * the second option sets how many overlapping entries there are (thus
+%   determining the width).
+\tikzset{entry/.style 2 args={
+    xshift=(0.5334em+0.8pt)/2,
+    draw,
+    line width=0.8pt,
+    font=\sffamily,
+    rectangle,
+    rounded corners,
+    fill=gray!20,
+    anchor=north west,
+    inner sep=0.3333em,
+    text width={\daywidth/#2-1.2em-1.6pt},
+    minimum height=#1*\hourheight,
+    align=center
+  }}
+
+\tikzset{schedule/.style={
+    y=-\hourheight,
+    x=\daywidth,
+    execute at start picture={
+      % First print a list of times.
+      \foreach \time/\ustime in {8/8am,9/9am,10/10am,11/11am,12/12pm,13/1pm,14/2pm,15/3pm,16/4pm,17/5pm}
+      \node[anchor=north east] at (1,\time) {\ustime};
+
+      % Draw some day dividers.
+      \draw (1,7) -- (1,18);
+      \draw (2,7) -- (2,18);
+      \draw (3,7) -- (3,18);
+      \draw (4,7) -- (4,18);
+      \draw (5,7) -- (5,18);
+      \draw (6,7) -- (6,18);
+    }
+  }
+}
