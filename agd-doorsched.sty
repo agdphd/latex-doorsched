@@ -45,7 +45,7 @@
 \tikzset{schedule/.style={
     y=-\hourheight,
     x=\daywidth,
-    execute at start picture={
+    execute at begin picture={
       % First print a list of times.
       \foreach \time/\ustime in {8/8am,9/9am,10/10am,11/11am,12/12pm,13/1pm,14/2pm,15/3pm,16/4pm,17/5pm}
       \node[anchor=north east] at (1,\time) {\ustime};
